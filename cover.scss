@@ -1,0 +1,58 @@
+@import 'parameters';
+
+.cover {
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+
+@if variable-exists(cover-overlay) {
+    .cover--overlay {
+        &::before {
+            bottom: 0;
+            content: '';
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            z-index: 0;
+
+            @if type-of($cover-overlay) == color {
+                background-color: $cover-overlay;
+            } @else if type-of($cover-overlay) == list {
+                background: linear-gradient(nth($cover-overlay, 1), nth($cover-overlay, 2));
+            }
+        }
+    }
+}
+
+.cover__body {
+    position: absolute;
+    z-index: 1;
+}
+
+@each $direction-x in (left, right, center) {
+    @each $direction-y in (top, bottom, center) {
+        .cover__body--#{$direction-x}-#{$direction-y} {
+            $translate-x: 0;
+            @if $direction-x == center {
+                left: 50%;
+                $translate-x: -50%;
+            } @else {
+                #{$direction-x}: 0;
+            }
+
+            $translate-y: 0;
+            @if $direction-y == center {
+                top: 50%;
+                $translate-y: -50%;
+            } @else {
+                #{$direction-y}: 0;
+            }
+
+            @if $translate-x != 0 or $translate-y != 0 {
+                transform: translate($translate-x, $translate-y);
+            }
+        }
+    }
+}

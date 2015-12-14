@@ -1,0 +1,9 @@
+linters:
+  Indentation:
+    width: 4
+  NameFormat:
+    enabled: false
+  ImportantRule:
+    enabled: false
+  SelectorFormat:
+    enabled: false
