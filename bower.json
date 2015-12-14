@@ -1,0 +1,22 @@
+{
+  "name": "cover-component",
+  "homepage": "https://github.com/LoicGoyet/cover",
+  "authors": [
+    "Loïc Goyet <loic@appventus.com>"
+  ],
+  "description": "HTML and CSS for the component you see too much on the web",
+  "main": "cover.scss",
+  "keywords": [
+    "sass",
+    "component",
+    "cover"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
