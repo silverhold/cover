@@ -1,1 +1,152 @@
-hello world GUI Cover
+<section>
+    <h2>Cover</h2>
+    <p>
+        You can use the cover component brick with a <a href="http://twig.sensiolabs.org/doc/tags/embed.html" title="link to the twig embed doc">twig embed</a>.<br>
+        <small><i>If you are into a symfony2 project made by <a href="https://appventus.com/" title="appventus">appventus</a> the path to the embed is</i> <code>{{ '{% embed "@bower/cover-component/cover.html.twig" %}{% endembed %} '}}</code>.</small>
+    </p>
+
+    <h3>Options</h3>
+
+    <h4>Arguments</h4>
+    <table>
+        <thead>
+            <tr>
+                <th>Value</th>
+                <th>Type</th>
+                <th>Required</th>
+                <th>Default</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>background</td>
+                <td>string</td>
+                <td>-</td>
+                <td>true</td>
+                <td>path to the image in background</td>
+            </tr>
+
+            <tr>
+                <td>height</td>
+                <td>string</td>
+                <td>-</td>
+                <td>true</td>
+                <td>height of the element</td>
+            </tr>
+
+            <tr>
+                <td>overlay</td>
+                <td>bool</td>
+                <td>false</td>
+                <td>false</td>
+                <td>add or not a overlay background</td>
+            </tr>
+
+            <tr>
+                <td>class</td>
+                <td>string</td>
+                <td>-</td>
+                <td>false</td>
+                <td>add a class to the element</td>
+            </tr>
+
+            <tr>
+                <td>id</td>
+                <td>string</td>
+                <td>-</td>
+                <td>false</td>
+                <td>add an id to the element</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h4>Blocks</h4>
+    <table>
+        <thead>
+            <tr>
+                <th>Block name</th>
+                <th>description</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>content_left_top</td>
+                <td>Content in to the left/top corner of the element</td>
+            </tr>
+
+            <tr>
+                <td>content_left_bottom</td>
+                <td>Content in to the left/bottom corner of the element</td>
+            </tr>
+
+            <tr>
+                <td>content_right_top</td>
+                <td>Content in to the right/top corner of the element</td>
+            </tr>
+
+            <tr>
+                <td>content_right_bottom</td>
+                <td>Content in to the right/bottom corner of the element</td>
+            </tr>
+
+            <tr>
+                <td>content_center_top</td>
+                <td>Content in to the center (on the x axe)/top position into the element</td>
+            </tr>
+
+            <tr>
+                <td>content_center_bottom</td>
+                <td>Content in to the center (on the x axe)/bottom position into the element</td>
+            </tr>
+
+            <tr>
+                <td>content_right_center</td>
+                <td>Content in to the right/center (on the y axe) position into the element</td>
+            </tr>
+
+            <tr>
+                <td>content_left_center</td>
+                <td>Content in to the left/center (on the y axe) position into the element</td>
+            </tr>
+
+            <tr>
+                <td>content_center_center</td>
+                <td>Content centered into the element</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Example</h3>
+    {% embed "@bower/cover-component/cover.html.twig" with {
+        background: 'http://blog.lesoir.be/belgium-iphone/wp-content/uploads/sites/73/2015/10/Screen-Shot-2015-04-17-at-08.36.20.jpg',
+        height: '250px',
+    } %}
+        {% block content_left_top %}left-top{% endblock %}
+        {% block content_center_top %}center-top{% endblock %}
+        {% block content_right_top %}right-top{% endblock %}
+        {% block content_left_center %}left-center{% endblock %}
+        {% block content_center_center %}center-center{% endblock %}
+        {% block content_right_center %}right-center{% endblock %}
+        {% block content_left_bottom %}left-bottom{% endblock %}
+        {% block content_center_bottom %}center-bottom{% endblock %}
+        {% block content_right_bottom %}right-bottom{% endblock %}
+    {% endembed %}
+
+    <pre>{{ "{% embed \"@bower/cover-component/cover.html.twig\" with {" }}
+    background: 'http://blog.lesoir.be/belgium-iphone/wp-content/uploads/sites/73/2015/10/Screen-Shot-2015-04-17-at-08.36.20.jpg',
+    height: '250px',
+{{ "} %}" }}
+    {{ "{% block content_left_top %}left-top{% endblock %}" }}
+    {{ "{% block content_center_top %}center-top{% endblock %}" }}
+    {{ "{% block content_right_top %}right-top{% endblock %}" }}
+    {{ "{% block content_left_center %}left-center{% endblock %}" }}
+    {{ "{% block content_center_center %}center-center{% endblock %}" }}
+    {{ "{% block content_right_center %}right-center{% endblock %}" }}
+    {{ "{% block content_left_bottom %}left-bottom{% endblock %}" }}
+    {{ "{% block content_center_bottom %}center-bottom{% endblock %}" }}
+    {{ "{% block content_right_bottom %}right-bottom{% endblock %}" }}
+{{ "{% endembed %}" }}</pre>
+</section>

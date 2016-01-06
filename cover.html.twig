@@ -1,0 +1,37 @@
+<section class="cover {% if overlay|default(false) %}cover--overlay {% endif %}{{ class|default('') }}" {% if id is defined %}id="{{ id }}"{% endif %} style="{% if background is defined %} background-image: url('{{ background }}');{% endif %} {% if height is defined %} height: {{ height }};{% endif %}">
+    <div class="cover__body cover__body--left-top">
+        {% block content_left_top %}{% endblock %}
+    </div>
+
+    <div class="cover__body cover__body--center-top">
+        {% block content_center_top %}{% endblock %}
+    </div>
+
+    <div class="cover__body cover__body--right-top">
+        {% block content_right_top %}{% endblock %}
+    </div>
+
+    <div class="cover__body cover__body--left-center">
+        {% block content_left_center %}{% endblock %}
+    </div>
+
+    <div class="cover__body cover__body--center-center">
+        {% block content_center_center %}{% endblock %}
+    </div>
+
+    <div class="cover__body cover__body--right-center">
+        {% block content_right_center %}{% endblock %}
+    </div>
+
+    <div class="cover__body cover__body--left-bottom">
+        {% block content_left_bottom %}{% endblock %}
+    </div>
+
+    <div class="cover__body cover__body--center-bottom">
+        {% block content_center_bottom %}{% endblock %}
+    </div>
+
+    <div class="cover__body cover__body--right-bottom">
+        {% block content_right_bottom %}{% endblock %}
+    </div>
+</section>
