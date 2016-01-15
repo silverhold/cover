@@ -1,0 +1,9 @@
+{
+    "stylevendor": [
+        "@bower/cover-component/cover.scss"
+    ],
+
+    "gui": [
+        "@bower/cover-component/gui.html.twig"
+    ]
+}
