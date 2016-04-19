@@ -70,6 +70,13 @@
   z-index: 3;
 }
 
+.cover__body--full {
+  top: $cover-content-margin;
+  right: $cover-content-margin;
+  bottom: $cover-content-margin;
+  left: $cover-content-margin;
+}
+
 @each $direction-x in (left, right, center) {
   @each $direction-y in (top, bottom, center) {
     .cover__body--#{$direction-x}-#{$direction-y} {
