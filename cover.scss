@@ -79,6 +79,7 @@
         $translate-x: -50%;
       } @else {
         #{$direction-x}: 0;
+        margin-#{$direction-x}: $cover-content-margin;
       }
 
       $translate-y: 0;
@@ -87,6 +88,7 @@
         $translate-y: -50%;
       } @else {
         #{$direction-y}: 0;
+        margin-#{$direction-y}: $cover-content-margin;
       }
 
       @if $translate-x != 0 or $translate-y != 0 {
