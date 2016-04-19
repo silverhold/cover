@@ -1,58 +1,93 @@
 @import 'parameters';
 
+@mixin bottom-rounded {
+  width: auto;
+  height: 100%;
+  left: nth($cover-rounded, 1);
+  right: nth($cover-rounded, 1);
+  border-bottom-left-radius: nth($cover-rounded, 2);
+  border-bottom-right-radius: nth($cover-rounded, 2);
+}
+
 .cover {
-    background-position: center;
-    background-size: cover;
-    position: relative;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+
+  @if variable-exists(cover-height-default) {
+    height: $cover-height-default;
+  }
 }
 
 @if variable-exists(cover-overlay) {
-    .cover--overlay {
-        &::before {
-            bottom: 0;
-            content: '';
-            left: 0;
-            position: absolute;
-            right: 0;
-            top: 0;
-            z-index: 0;
+  .cover--overlay {
+    &::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 2;
 
-            @if type-of($cover-overlay) == color {
-                background-color: $cover-overlay;
-            } @else if type-of($cover-overlay) == list {
-                background: linear-gradient(nth($cover-overlay, 1), nth($cover-overlay, 2));
-            }
-        }
+      @if type-of($cover-overlay) == color {
+        background-color: $cover-overlay;
+      } @else if type-of($cover-overlay) == list {
+        background: linear-gradient(nth($cover-overlay, 1), nth($cover-overlay, 2));
+      }
     }
+
+    @if variable-exists(cover-rounded) {
+      &.cover--rounded {
+        &::before {
+          @include bottom-rounded;
+        }
+      }
+    }
+  }
+}
+
+.cover__bg {
+  position: absolute;
+  z-index: 1;
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+
+  @if variable-exists(cover-rounded) {
+    .cover--rounded & {
+      @include bottom-rounded;
+    }
+  }
 }
 
 .cover__body {
-    position: absolute;
-    z-index: 1;
+  position: absolute;
+  z-index: 3;
 }
 
 @each $direction-x in (left, right, center) {
-    @each $direction-y in (top, bottom, center) {
-        .cover__body--#{$direction-x}-#{$direction-y} {
-            $translate-x: 0;
-            @if $direction-x == center {
-                left: 50%;
-                $translate-x: -50%;
-            } @else {
-                #{$direction-x}: 0;
-            }
+  @each $direction-y in (top, bottom, center) {
+    .cover__body--#{$direction-x}-#{$direction-y} {
+      $translate-x: 0;
+      @if $direction-x == center {
+        left: 50%;
+        $translate-x: -50%;
+      } @else {
+        #{$direction-x}: 0;
+      }
 
-            $translate-y: 0;
-            @if $direction-y == center {
-                top: 50%;
-                $translate-y: -50%;
-            } @else {
-                #{$direction-y}: 0;
-            }
+      $translate-y: 0;
+      @if $direction-y == center {
+        top: 50%;
+        $translate-y: -50%;
+      } @else {
+        #{$direction-y}: 0;
+      }
 
-            @if $translate-x != 0 or $translate-y != 0 {
-                transform: translate($translate-x, $translate-y);
-            }
-        }
+      @if $translate-x != 0 or $translate-y != 0 {
+        transform: translate($translate-x, $translate-y);
+      }
     }
+  }
 }

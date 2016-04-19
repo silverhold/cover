@@ -1,4 +1,6 @@
-<section class="cover {% if overlay|default(false) %}cover--overlay {% endif %}{{ class|default('') }}" {% if id is defined %}id="{{ id }}"{% endif %} style="{% if background is defined %} background-image: url('{{ background }}');{% endif %} {% if height is defined %} height: {{ height }};{% endif %}">
+<section class="cover{% if overlay|default(false) %} cover--overlay{% endif %}{% if rounded|default(false) %} cover--rounded{% endif %} {{ class|default('') }}" {% if id is defined %}id="{{ id }}"{% endif %} {% if height is defined %} height: {{ height }};{% endif %}>
+    <div class="cover__bg"{% if background is defined %} style="background-image: url('{{ background }}');"{% endif %}></div>
+
     <div class="cover__body cover__body--left-top">
         {% block content_left_top %}{% endblock %}
     </div>
