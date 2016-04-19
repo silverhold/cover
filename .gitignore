@@ -2,3 +2,6 @@
 *.css.map
 *.css
 index.html
+test/dest
+node_modules
+npm-debug.log

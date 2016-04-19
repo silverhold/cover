@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="style.css" charset="utf-8">
+    </head>
+
+    <body>
+        {% set background = 'http://media.dcentertainment.com/sites/default/files/GalleryComics_1920x1080_20150218_JUSTL_Cv39_54ab4347c4b031.65936453.jpg' %}
+
+        {% embed '../../cover.html.twig' with { background: background, overlay: false, rounded: false } %}
+            {% block content_left_top %}left / top{% endblock %}
+            {% block content_center_top %}center / top{% endblock %}
+            {% block content_right_top %}right / top{% endblock %}
+            {% block content_left_center %}left / center{% endblock %}
+            {% block content_center_center %}center / center{% endblock %}
+            {% block content_right_center %}right / center{% endblock %}
+            {% block content_left_bottom %}left / bottom{% endblock %}
+            {% block content_center_bottom %}center / bottom{% endblock %}
+            {% block content_right_bottom %}right / bottom{% endblock %}
+        {% endembed %}
+        <br>
+
+        {% embed '../../cover.html.twig' with { background: background, overlay: true, rounded: false } %}
+            {% block content_left_top %}left / top{% endblock %}
+            {% block content_center_top %}center / top{% endblock %}
+            {% block content_right_top %}right / top{% endblock %}
+            {% block content_left_center %}left / center{% endblock %}
+            {% block content_center_center %}center / center{% endblock %}
+            {% block content_right_center %}right / center{% endblock %}
+            {% block content_left_bottom %}left / bottom{% endblock %}
+            {% block content_center_bottom %}center / bottom{% endblock %}
+            {% block content_right_bottom %}right / bottom{% endblock %}
+        {% endembed %}
+        <br>
+
+        {% embed '../../cover.html.twig' with { background: background, overlay: false, rounded: true } %}
+            {% block content_left_top %}left / top{% endblock %}
+            {% block content_center_top %}center / top{% endblock %}
+            {% block content_right_top %}right / top{% endblock %}
+            {% block content_left_center %}left / center{% endblock %}
+            {% block content_center_center %}center / center{% endblock %}
+            {% block content_right_center %}right / center{% endblock %}
+            {% block content_left_bottom %}left / bottom{% endblock %}
+            {% block content_center_bottom %}center / bottom{% endblock %}
+            {% block content_right_bottom %}right / bottom{% endblock %}
+        {% endembed %}
+        <br>
+
+        {% embed '../../cover.html.twig' with { background: background, overlay: true, rounded: true } %}
+            {% block content_left_top %}left / top{% endblock %}
+            {% block content_center_top %}center / top{% endblock %}
+            {% block content_right_top %}right / top{% endblock %}
+            {% block content_left_center %}left / center{% endblock %}
+            {% block content_center_center %}center / center{% endblock %}
+            {% block content_right_center %}right / center{% endblock %}
+            {% block content_left_bottom %}left / bottom{% endblock %}
+            {% block content_center_bottom %}center / bottom{% endblock %}
+            {% block content_right_bottom %}right / bottom{% endblock %}
+        {% endembed %}
+    </body>
+</html>
