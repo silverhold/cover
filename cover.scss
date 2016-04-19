@@ -15,6 +15,10 @@
   position: relative;
   overflow: hidden;
 
+  @if variable-exists(cover-color-default) {
+    color: $cover-color-default;
+  }
+
   @if variable-exists(cover-height-default) {
     height: $cover-height-default;
   }
