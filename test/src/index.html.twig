@@ -62,5 +62,18 @@
             {% block content_center_bottom %}center / bottom{% endblock %}
             {% block content_right_bottom %}right / bottom{% endblock %}
         {% endembed %}
+        <br>
+
+        {% embed '../../cover.html.twig' with { background: background, overlay: true, parallax: true } %}
+            {% block content_left_top %}left / top{% endblock %}
+            {% block content_center_top %}center / top{% endblock %}
+            {% block content_right_top %}right / top{% endblock %}
+            {% block content_left_center %}left / center{% endblock %}
+            {% block content_center_center %}center / center{% endblock %}
+            {% block content_right_center %}right / center{% endblock %}
+            {% block content_left_bottom %}left / bottom{% endblock %}
+            {% block content_center_bottom %}center / bottom{% endblock %}
+            {% block content_right_bottom %}right / bottom{% endblock %}
+        {% endembed %}
     </body>
 </html>

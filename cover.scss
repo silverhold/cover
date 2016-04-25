@@ -65,6 +65,11 @@
   }
 }
 
+.cover__bg--parallax {
+  background-attachment: fixed;
+  transform: translate3d(0, 0, 0);
+}
+
 .cover__body {
   position: absolute;
   z-index: 3;
