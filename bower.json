@@ -1,10 +1,10 @@
 {
-  "name": "cover-component",
+  "name": "trowel-cover",
   "homepage": "https://github.com/LoicGoyet/cover",
   "authors": [
     "Loïc Goyet <loic@appventus.com>"
   ],
-  "description": "HTML and CSS for the component you see too much on the web",
+  "description": "A trowel component to display a cover",
   "main": "cover.scss",
   "keywords": [
     "sass",
