@@ -6,7 +6,7 @@ HTML and CSS for the component you see too much on the web
 ### Download
 You can download cover-component via bower using the following command:
 ```
-$ bower install cover-component
+$ bower install trowel-cover
 ```
 
 ### basic markup
