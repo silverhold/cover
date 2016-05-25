@@ -1,6 +1,6 @@
 // scss-lint:disable ColorVariable
 $cover-overlay: transparentize(rgb(0, 0, 0), 0.7) transparentize(rgb(0, 0, 0), 0.4) !default;
 $cover-rounded: -20% 50% !default;
-$cover-height-default: 72vh !default;
+$cover-height-default: auto !default;
 $cover-color-default: rgb(255, 255, 255) !default;
 $cover-content-margin: 30px !default;
