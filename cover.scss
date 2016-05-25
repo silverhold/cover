@@ -82,6 +82,11 @@
   left: $cover-content-margin;
 }
 
+.cover__body--fluid {
+  position: relative;
+  padding: $cover-content-margin;
+}
+
 @each $direction-x in (left, right, center) {
   @each $direction-y in (top, bottom, center) {
     .cover__body--#{$direction-x}-#{$direction-y} {
