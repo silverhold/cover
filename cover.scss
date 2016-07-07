@@ -120,8 +120,8 @@
         left: 50%;
         $translate-x: -50%;
       } @elseif $direction-x == full {
-        left: 0;
-        right: 0;
+        left: $cover-content--margin;
+        right: $cover-content--margin;
       } @else {
         #{$direction-x}: 0;
         margin-#{$direction-x}: $cover-content--margin;
@@ -132,8 +132,8 @@
         top: 50%;
         $translate-y: -50%;
       } @elseif $direction-y == full {
-        top: 0;
-        bottom: 0;
+        top: $cover-content--margin;
+        bottom: $cover-content--margin;
       } @else {
         #{$direction-y}: 0;
         margin-#{$direction-y}: $cover-content--margin;
