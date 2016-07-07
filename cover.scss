@@ -7,10 +7,10 @@
 @mixin bottom-rounded {
   width: auto;
   height: 100%;
-  left: nth($cover-rounded, 1);
-  right: nth($cover-rounded, 1);
-  border-bottom-left-radius: nth($cover-rounded, 2);
-  border-bottom-right-radius: nth($cover-rounded, 2);
+  left: nth($cover--round, 1);
+  right: nth($cover--round, 1);
+  border-bottom-left-radius: nth($cover--round, 2);
+  border-bottom-right-radius: nth($cover--round, 2);
 }
 
 @mixin cover--height($var) {
@@ -38,12 +38,12 @@
   position: relative;
   overflow: hidden;
 
-  @if variable-exists(cover--color) {
+  @if variable-exists(cover--color) and $cover--color != false {
     color: $cover--color;
   }
 }
 
-@if variable-exists(cover-overlay) {
+@if variable-exists(cover--overlay) and $cover--overlay != false {
   .cover--overlay {
     &::before {
       content: '';
@@ -52,14 +52,14 @@
       height: 100%;
       z-index: 2;
 
-      @if type-of($cover-overlay) == color {
-        background-color: $cover-overlay;
-      } @else if type-of($cover-overlay) == list {
-        background: linear-gradient(nth($cover-overlay, 1), nth($cover-overlay, 2));
+      @if type-of($cover--overlay) == 'color' {
+        background-color: $cover--overlay;
+      } @else if type-of($cover--overlay) == 'list' {
+        background: linear-gradient(nth($cover--overlay, 1), nth($cover--overlay, 2));
       }
     }
 
-    @if variable-exists(cover-rounded) and $cover-rounded != false {
+    @if variable-exists(cover--round) and $cover--round != false {
       &.cover--rounded {
         &::before {
           @include bottom-rounded;
@@ -83,7 +83,7 @@
   width: 100%;
   height: 100%;
 
-  @if variable-exists(cover-rounded) and $cover-rounded != false {
+  @if variable-exists(cover--round) and $cover--round != false {
     .cover--rounded & {
       @include bottom-rounded;
     }
@@ -101,15 +101,15 @@
 }
 
 .cover__body--full {
-  top: $cover-content-margin;
-  right: $cover-content-margin;
-  bottom: $cover-content-margin;
-  left: $cover-content-margin;
+  top: $cover-content--margin;
+  right: $cover-content--margin;
+  bottom: $cover-content--margin;
+  left: $cover-content--margin;
 }
 
 .cover__body--fluid {
   position: relative;
-  padding: $cover-content-margin;
+  padding: $cover-content--margin;
 }
 
 @each $direction-x in (left, right, center) {
@@ -121,7 +121,7 @@
         $translate-x: -50%;
       } @else {
         #{$direction-x}: 0;
-        margin-#{$direction-x}: $cover-content-margin;
+        margin-#{$direction-x}: $cover-content--margin;
       }
 
       $translate-y: 0;
@@ -130,7 +130,7 @@
         $translate-y: -50%;
       } @else {
         #{$direction-y}: 0;
-        margin-#{$direction-y}: $cover-content-margin;
+        margin-#{$direction-y}: $cover-content--margin;
       }
 
       @if $translate-x != 0 or $translate-y != 0 {

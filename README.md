@@ -27,6 +27,6 @@ $ bower install trowel-cover
     </div>
 </div>
 ```
-`.cover--overlay` add a background that could be setted with the `$cover-overlay` variable:
-* `$cover-overlay` can be a color, and the overlay will be a plain color
-* `$cover-overlay` can be a list with of 2 colors, and the overlay will be a gradient, the first colors at the top of the gradient and the second color at the bottom of the gradient.
+`.cover--overlay` add a background that could be setted with the `$cover--overlay` variable:
+* `$cover--overlay` can be a color, and the overlay will be a plain color
+* `$cover--overlay` can be a list with of 2 colors, and the overlay will be a gradient, the first colors at the top of the gradient and the second color at the bottom of the gradient.
