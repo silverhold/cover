@@ -112,13 +112,16 @@
   padding: $cover-content--margin;
 }
 
-@each $direction-x in (left, right, center) {
-  @each $direction-y in (top, bottom, center) {
+@each $direction-x in (left, right, center, full) {
+  @each $direction-y in (top, bottom, center, full) {
     .cover__body--#{$direction-x}-#{$direction-y} {
       $translate-x: 0;
       @if $direction-x == center {
         left: 50%;
         $translate-x: -50%;
+      } @elseif $direction-x == full {
+        left: 0;
+        right: 0;
       } @else {
         #{$direction-x}: 0;
         margin-#{$direction-x}: $cover-content--margin;
@@ -128,6 +131,9 @@
       @if $direction-y == center {
         top: 50%;
         $translate-y: -50%;
+      } @elseif $direction-y == full {
+        top: 0;
+        bottom: 0;
       } @else {
         #{$direction-y}: 0;
         margin-#{$direction-y}: $cover-content--margin;
