@@ -40,7 +40,7 @@
       }
     }
 
-    @if variable-exists(cover-rounded) {
+    @if variable-exists(cover-rounded) and $cover-rounded != false {
       &.cover--rounded {
         &::before {
           @include bottom-rounded;
@@ -58,7 +58,7 @@
   width: 100%;
   height: 100%;
 
-  @if variable-exists(cover-rounded) {
+  @if variable-exists(cover-rounded) and $cover-rounded != false {
     .cover--rounded & {
       @include bottom-rounded;
     }
