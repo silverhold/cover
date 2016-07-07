@@ -1,5 +1,9 @@
 @import 'parameters';
 
+@if type-of($cover--height) != 'map' and type-of($cover--height) != 'number' and $cover--height != auto {
+  @error 'Variable $cover--height must be a map or number';
+}
+
 @mixin bottom-rounded {
   width: auto;
   height: 100%;
@@ -9,18 +13,33 @@
   border-bottom-right-radius: nth($cover-rounded, 2);
 }
 
+@mixin cover--height($var) {
+  @if type-of($var) == 'number' {
+    height: $var;
+  } @elseif type-of($var) == 'map' {
+    @each $viewport, $height in $var {
+      @if $viewport == 'default' {
+        height: $height;
+      } @else {
+        @if is-breakpoint($viewport) {
+          @include media-query($viewport, 'mobile-first') {
+            height: $height;
+          }
+        }
+      }
+    }
+  }
+}
+
 .cover {
+  @include cover--height($cover--height);
   background-position: center;
   background-size: cover;
   position: relative;
   overflow: hidden;
 
-  @if variable-exists(cover-color-default) {
-    color: $cover-color-default;
-  }
-
-  @if variable-exists(cover-height-default) {
-    height: $cover-height-default;
+  @if variable-exists(cover--color) {
+    color: $cover--color;
   }
 }
 
@@ -47,6 +66,12 @@
         }
       }
     }
+  }
+}
+
+@each $size, $heights in $cover--sizes {
+  .cover--#{$size} {
+    @include cover--height($heights);
   }
 }
 
