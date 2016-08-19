@@ -1,4 +1,4 @@
-<section class="cover{% if size|default(false) %} cover--{{ size }}{% endif %}{% if overlay|default(false) %} cover--overlay{% endif %}{% if rounded|default(false) %} cover--rounded{% endif %} {{ class|default('') }}" {% if id is defined %}id="{{ id }}"{% endif %} {% if height is defined %} height: {{ height }};{% endif %}>
+<section class="cover{% if size|default(false) %} cover--{{ size }}{% endif %}{% if overlay|default(false) %} cover--overlay{% endif %}{% if rounded|default(false) %} cover--rounded{% endif %} {{ class|default('') }}"{% if id is defined %} id="{{ id }}"{% endif %}{% if height is defined %} style="height: {{ height }};"{% endif %}>
     <div class="cover__bg{% if parallax|default(false) %} cover__bg--parallax{% endif %}"{% if background is defined %} style="background-image: url('{{ background }}');"{% endif %}></div>
 
     <div class="cover__body cover__body--fluid">
