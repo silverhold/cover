@@ -20,16 +20,63 @@ $ bower install trowel-cover
 `[x]` and `[y]` are the position of the element.
 
 ### with overlay
+
+#### In a specific div
 ```html
-<div class="cover cover--overlay">
+<div class="cover">
+    <div class="cover__overlay" style="background-color: rgb(0, 0, 10); opacity: 0.3;"></div>
+
+    <div class="cover__bg" style="background-image: url('path/to/img.jpg');"></div>
+
     <div class="cover__body cover__body--[x]-[y]">
-        lorem ipsum
+        ...
     </div>
 </div>
 ```
-`.cover--overlay` add a background that could be setted with the `$cover--overlay` variable:
-* `$cover--overlay` can be a color, and the overlay will be a plain color
-* `$cover--overlay` can be a list with of 2 colors, and the overlay will be a gradient, the first colors at the top of the gradient and the second color at the bottom of the gradient.
+
+```twig
+{% embed '../../cover.html.twig' with {
+    'background': 'path/to/img.jpg',
+    'overlay': {
+        'color': 'rgb(0, 0, 10)',
+        'opacity': '0.3'
+    },
+} %}
+    {% block content_full %}
+        ...
+    {% endblock %}
+{% endembed %}
+```
+Into the twig embed you can just set to `true` the `overlay` parameter. It will generate an *overlay* with the `rgb(0, 0, 0)` color and an *opacity* of `0.5`.
+
+#### Directly with the `.cover__bg` element
+
+```html
+<section class="cover">
+    <div class="cover__bg" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('path/to/img.jpg');"></div>
+
+    <div class="cover__body cover__body--[x]-[y]">
+        ....
+    </div>
+</section>
+```
+
+```twig
+{% embed '../../cover.html.twig' with {
+    'background': background,
+    'overlay': {
+        'gradient': 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5))'
+    },
+} %}
+    {% block content_full %}
+        ...
+    {% endblock %}
+{% endembed %}
+```
+
+
+#### Sass variables
+* `$cover--overlay` bool - will generate css required for overlays or not
 
 
 ### height
