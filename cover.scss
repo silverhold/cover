@@ -43,27 +43,17 @@
   }
 }
 
-@if variable-exists(cover--overlay) and $cover--overlay != false {
-  .cover--overlay {
-    &::before {
-      content: '';
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      z-index: 2;
-
-      @if type-of($cover--overlay) == 'color' {
-        background-color: $cover--overlay;
-      } @else if type-of($cover--overlay) == 'list' {
-        background: linear-gradient(nth($cover--overlay, 1), nth($cover--overlay, 2));
-      }
-    }
+@if $cover--overlay {
+  .cover__overlay {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
 
     @if variable-exists(cover--round) and $cover--round != false {
-      &.cover--rounded {
-        &::before {
-          @include bottom-rounded;
-        }
+      .cover--rounded & {
+        @include bottom-rounded;
       }
     }
   }

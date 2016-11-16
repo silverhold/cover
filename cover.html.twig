@@ -1,5 +1,9 @@
-<section class="cover{% if size|default(false) %} cover--{{ size }}{% endif %}{% if overlay|default(false) %} cover--overlay{% endif %}{% if rounded|default(false) %} cover--rounded{% endif %} {{ class|default('') }}"{% if id is defined %} id="{{ id }}"{% endif %}{% if height is defined %} style="height: {{ height }};"{% endif %}>
-    <div class="cover__bg{% if parallax|default(false) %} cover__bg--parallax{% endif %}"{% if background is defined %} style="background-image: url('{{ background }}');"{% endif %}></div>
+<section class="cover{% if size|default(false) %} cover--{{ size }}{% endif %}{% if rounded|default(false) %} cover--rounded{% endif %} {{ class|default('') }}"{% if id is defined %} id="{{ id }}"{% endif %}{% if height is defined %} style="height: {{ height }};"{% endif %}>
+    {% if overlay|default(false) and not overlay.gradient|default(false) %}
+        <div class="cover__overlay" style="background-color: {{ overlay.color|default('rgb(0, 0, 0)') }}; opacity: {{ overlay.opacity|default('0.5') }};"></div>
+    {% endif %}
+
+    <div class="cover__bg{% if parallax|default(false) %} cover__bg--parallax{% endif %}"{% if background is defined %} style="background-image: {% if overlay.gradient|default(false) %}{{ overlay.gradient ~ ', ' }}{% endif %}url('{{ background }}');"{% endif %}></div>
 
     <div class="cover__body cover__body--fluid">
         {% block content_fluid %}{% endblock %}
