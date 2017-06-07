@@ -1,10 +1,10 @@
 {
-  "name": "trowel-cover",
+  "name": "silverhold-cover",
   "homepage": "https://github.com/LoicGoyet/cover",
   "authors": [
     "Loïc Goyet <loic@appventus.com>"
   ],
-  "description": "A trowel component to display a cover",
+  "description": "A silverhold component to display a cover",
   "main": "cover.scss",
   "keywords": [
     "sass",
@@ -20,6 +20,6 @@
     "tests"
   ],
   "dependencies": {
-    "trowel-responsive": "^1.3.0"
+    "silverhold-responsive": "^1.3.0"
   }
 }

@@ -6,7 +6,7 @@ HTML and CSS for the component you see too much on the web
 ### Download
 You can download cover-component via bower using the following command:
 ```
-$ bower install trowel-cover
+$ bower install silverhold-cover
 ```
 
 ### basic markup
@@ -81,7 +81,7 @@ Into the twig embed you can just set to `true` the `overlay` parameter. It will 
 
 ### height
 The variable `$cover--height` can be defined as a number and it will applied with the property `height`.
-But `$cover--height` can also be a map with as values the height and as key the responsive tag from [trowel responsive](https://github.com/Trowel/responsive) with a 'mobile-first' philosophy.
+But `$cover--height` can also be a map with as values the height and as key the responsive tag from [silverhold responsive](https://github.com/silverhold/responsive) with a 'mobile-first' philosophy.
 
 ```scss
 // Default value
